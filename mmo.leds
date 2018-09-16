@@ -1,0 +1,27 @@
+# Gaming MMO key colors
+
+version	0 1 0
+
+/red	ff 00 00
+/green	00 ff 00
+
+
+w	/red
+a	/red
+s	/red
+d	/red
+
+enter	ff 00 ff   # purple
+
+1	/green
+2	/green
+3	/green
+4	/green
+5	/green
+6	/green
+7	/green
+8	/green
+9	/green
+0	/green
+-	/green
+=	/green
