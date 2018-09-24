@@ -1,8 +1,7 @@
 Not A Linux Utility For The AJAZZ AK33 RGB Keyboard
 ===================================================
 
-<a name="no_warranty"></a>
-No Warranty  
+No Warranty  <a name="no_warranty"></a>
 -----------
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
@@ -14,7 +13,7 @@ Disclaimer  <a name="disclaimer"></a>
 ----------
 This project is presented as a work of fiction, solely for the purpose of  entertainment. Neither Ajazz Electronic Technology Co., Ltd.. nor any of its associates, subsidiaries, distributors, sellers, etc. has any knowledge of it, nor have given any approval of the software it contains. Any use of the software included here will void any and all warranties provided by Ajazz and/or other entities, and may permanently damage the hardware it affects.  Potential users of the software assume all risk and responsibility and agree to hold harmless Ajazz, GitHub, the author, and any and all other entities.
 
-Thank you. The program works for me. Your mileage may vary.
+Thank you. The program works for me --- except for problems on older keyboards/firmware (see [Older Firmware](#older_firmware)). Your mileage may vary.
 
 
 Motivation
@@ -77,7 +76,17 @@ When I awoke I found that I had scribbled a long list of hex values on my pillow
 
 That's the whole story.
 
-Note also that there are at least two firmware versions of the keyboard in existence, and this code (fictitiously) only works with one of them. The mode change, all-keys-same-color, and level setting works on both, but not the individual key colors. The Ajazz Windows software has the same problem, so I don't think I misunderstood Yoda's instructions.
+#### Older Firmware --- WARNING! <a name="older_firmware"></a>
+
+Note also that Ajazz has sold AK33 keyboards that seem to have at least two different firmware versions, and this code (fictitiously) only works with one of them. The mode change, all-keys-same-color, and level setting works on both, but not the individual key colors. The Ajazz Windows software has the same problem, so I don't think I misunderstood Yoda's instructions.
+
+If you were to use this project's sofware (or Ajazz's Windows progam) to set individual key colors ([`--key`](#key_option) or [`--file`](#file_option) options) on a keyboard with the older firmware, you would find that it only works for some keys.
+
+Worse, it may set most of the other keys to red. All but one of them can be manually restored to black/off (or any of the other 8 preset colors) using the "Fn+~"  mode on the keyboard without external sofware. BUT NOT THE **"Fn"** KEY ITSELF! That one cannot be changed manually, and will be permanently lit red. Disconnecting and reconnecting the keyboard, cycling power on the computer, etc. will not help as the keyboard stores settings in non-volatile memory.
+
+IF THIS IS UNACCEPTABLE, DO NOT USE ANY SOFTWARE TO SET INDIVIDUAL KEY COLORS!!!
+
+I do not know if there is any way to determine the firmware version of a particular keyboard. I have a "black" keyswitch AK33 purchased March 2017 with the non-working firmware, and one "blue" and one "black" purchased July 2018 with the "good" firmware. Your mileage may vary.
 
 
 #### GUI
@@ -90,7 +99,7 @@ What's a GUI? Command-line FTW.
 Of course you're not going to risk using the software, but if you did, its options should be fairly self-explanatory. Type `./ajazz.py --help` for a semi-useful summary. Basically:
 
     -d DEVICE, --device DEVICE                    /dev/hidrawN
-The /dev/hidraw<N> Linux device special file associated with the keyboard. See [Setup](#setup), below. An ordinary file can be used for testing, but it must exist, and should be empty, before running the program.
+The /dev/hidraw<N> Linux device special file associated with the keyboard. See [Setup](#setup). An ordinary file can be used for testing, but it must exist, and should be empty, before running the program.
 <br><br>
 
     -m [MODE], --mode [MODE]                      solid|custom|<0-20>
@@ -105,16 +114,22 @@ Overall LED brightness. Applies to all modes. Same as doing `Fn`+`up` or `down` 
 red, green, and blue values for the all-keys-same color mode, either decimal numbers between 0..255 or hexadecimal 0x00..0xff. Sorry about the "SOLID SOLID SOLID" text --- I had a hard enough time getting Python `argparse` to accept a custom parser that would eat three separate arguments at once. Any suggestions appreciated.
 <br><br>
 
+<a name="key_option"></a>
+
     -k KEY KEY KEY KEY, --key KEY KEY KEY KEY     <key> <r> <g> <b>
+(See [Older Firmware](#older_firmware) warning!)<br>
 Key name (`--names` for list) followed by r,g,b as per `--solid`. Same sorry excuse again for the bad help message. May be repeated to set multiple keys in single program invocation.
 <br><br>
 
+<a name="file_option"></a>
+
     -f [FILE], --file [FILE]                      key+color file
+(See [Older Firmware](#older_firmware) warning!)<br>
 Name of text file containing LED colors for individual keys. See [File](#file).
 <br><br>
 
     --names                                       print key names for --file file
-See [File](#file).
+See [File Format](#file_format).
 <br><br>
 
     -A, --accept                                  suppress warning message
@@ -131,7 +146,7 @@ Value for checking `version` string in `--file <file>`
 <br><br>
 
 
-#### File Format (`--file` option) and Syntax <a name="file"></a>
+#### File Format (`--file` option) and Syntax <a name="file_format"></a>
 
 The largely undocumented structure (and I complain about Ajazz!) of these files is:
 
