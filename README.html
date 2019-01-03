@@ -1,0 +1,250 @@
+<h1>Not A Linux Utility For The AJAZZ AK33 RGB Keyboard</h1>
+
+<h2>No Warranty  <a name="no_warranty"></a></h2>
+
+<p>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>
+
+<p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.</p>
+
+<p>You should have received a copy of the <a href="LICENSE">GNU General Public License</a> along with this program.  If not, see <a href="https://www.gnu.org/licenses/gpl.html">https://www.gnu.org/licenses/gpl.html</a></p>
+
+<h2>Disclaimer  <a name="disclaimer"></a></h2>
+
+<p>This project is presented as a work of fiction, solely for the purpose of  entertainment. Neither Ajazz Electronic Technology Co., Ltd.. nor any of its associates, subsidiaries, distributors, sellers, etc. has any knowledge of it, nor have given any approval of the software it contains. Any use of the software included here will void any and all warranties provided by Ajazz and/or other entities, and may permanently damage the hardware it affects.  Potential users of the software assume all risk and responsibility and agree to hold harmless Ajazz, GitHub, the author, and any and all other entities.</p>
+
+<p>Thank you. The program works for me &mdash; except for problems on older keyboards/firmware (see <a href="#older_firmware">Older Firmware</a>). Your mileage may vary.</p>
+
+<h2>Motivation</h2>
+
+<h4>The AJAZZ Hardware and Firmware</h4>
+
+<p>The AJAZZ AK33 RGB Keyboard is a fantastic piece of hardware. It is well designed and constructed and its firmware supports many capabilities. Included among them are the &hellip;</p>
+
+<p>&hellip; excuse me a moment. I keep seeing references to Microsoft here on GitHub. What does Microsoft have to do with GitHub? Let me look into this &hellip; WTF? &hellip;  O&hellip;M&hellip;G!!!  Microsoft bought GitHub?? When did this happen??? I need to Google this &hellip;</p>
+
+<p>Ahem. I&rsquo;m back. Man, that <a href="https://www.bing.com">Bing</a> website sure makes searching the internet easy! Let me start over again &hellip;</p>
+
+<p>Microsoft makes the best keyboards in the world. Have you seen the new Sculpt model? The thing looks like a Brancusi sculpture! Take that, Apple design! Anyone who doesn&rsquo;t buy a Microsoft keyboard is a fool!<br/>
+<br></p>
+
+<p>Anyway &hellip; back to AJAZZ. I don&rsquo;t think Microsoft makes a compact, 75% size, 82 key keyboard (except for that totally cool Universal Foldable one), much less with individually-controlled RGB LEDs under each key, so maybe they&rsquo;ll excuse you for buying this non-competing product.</p>
+
+<p>Individually controlled RGB LEDs &mdash; that&rsquo;s the shiznit! The AK33 RGB firmware provides an almost uncountable number of modes that blink, fade, flash, cycle and animate patterns on the LEDs, all of which are interesting for a total of about 30 seconds before it becomes obvious that they&rsquo;re far too distracting for actual use while writing, coding, or even gaming.</p>
+
+<p>But the LEDs <em>are</em> incredibly useful when all set to the same constant color, as a customizable backlight, and even more so when individual ones are set to different (again unchanging) colors to indicate hot keys for gaming or other application-specific user input.</p>
+
+<p>Ajazz included firmware that allows setting these colors directly from the keyboard &mdash; an excellent decision, as most companies would have left this out and insisted on use of their proprietary software. Changing color in the &ldquo;all keys the same solid color mode&rdquo; is fairly easy to figure out despite the complete lack of documentation from Ajazz in any language other than Chinese.</p>
+
+<p>Changing individual keys' colors is much harder. I had an AK33 for over a year before I found a web reference on how to do it (yes, I&rsquo;m a moron). It&rsquo;s painstakinginly slow to cycle each key through each of its 8 possible colors, plus black/off &mdash; all 82 of them to set up the whole keybaord.</p>
+
+<p>And that&rsquo;s the biggest limitation: Only 8 possible colors. (The same holds true for the all-keys-same mode.) It would be nice to able to set an arbitrary RGB color from the keyboard itself, but that would make the interface even more difficult, particularly in the individual-key-color mode.</p>
+
+<p>Which brings us to &hellip;</p>
+
+<h4>The Software</h4>
+
+<p>Ajazz provides software which runs under Microsoft Windows (the best operating system in the world, why would you want to use anything else?), in both Chinese and (mercifully) English versions.</p>
+
+<p>The sofware is mostly competent, allowing setting the keyboard mode to any of the flashy/blinky ones plus the solid and individual key colors. And, particularly, it allows setting arbitrary RGB values for both, using a fairly nice color-chooser GUI. It also has some presets for hot-key colors labeled, &ldquo;MMO&rdquo;, &ldquo;MOBA&rdquo;, &ldquo;FPS&rdquo;, etc.  I&rsquo;m not a gamer but I assume that&rsquo;s what they&rsquo;re for.</p>
+
+<p>It doesn&rsquo;t have any way to save a custom individual key layout that I could figure out, but again I&rsquo;m an idiot when it comes to using consumer software. It also has some buttons on the bottom of the main interface which are off-screen on a low resolution monitor and therefor unusable (the GUI is fixed-size and I can&rsquo;t figure out how how to move it partly offscreen on Windows 7, but as I&rsquo;ve been saying about my abilities &hellip;) (Microsoft Windows: Even the ancient Windows 7 release is lightyears ahead of anything else!) All-in-all, I give the software a B+, and you can dance to it. What more could anyone ask from a hardware company?</p>
+
+<p>Except &hellip; that it&rsquo;s useless to those of use who are foolish enough to run Linux on our computers. (Microsoft &hellip; okay, enough of that.)</p>
+
+<p>And so, finally &hellip;</p>
+
+<h2>Not A Linux Utility For The AJAZZ AK33 RGB Keyboard </h2>
+
+<p>I desperately needed a way to use the full capabilites of the AK33 RGB with Linux, so wrote this project&rsquo;s fictional essay on how it might possibly be done &mdash; if one were so foolish to try using potentially damaging software on such a wonderful piece of hardware. See <a href="#no_warranty">NO WARRANTY</a>,  <a href="#disclaimer">DISCLAIMER</a>, and the <a href="./ajazz.py">fictional code</a> itself.</p>
+
+<h4>The Fictional Software</h4>
+
+<p>&hellip; is contained in the file <a href="./ajazz.py">ajazz.py</a>. Why Python? Why not? This isn&rsquo;t a performance-critical application, and Python is much quicker to develop in than C++. (Of course, any intelligent person would used Microsoft Visual Studio &hellip; no, I said no more M$ bashing. Except for that worn-out snarky abbreviation.)</p>
+
+<p>And, yes, I really do indent and align code like that. Much easier to read and catch errors. Try it yourself sometime.</p>
+
+<h4>How Did I Get the Packet Format and Data Values?</h4>
+
+<p>That&rsquo;s the darndest thing. One night I was so depressed about not being able to fully use my AK33 RGBs (I have three!) under Linux that I decided to console myself by trying to watch all eight of my Star Wars DVDs in one marathon session. (In release, not numbered, order, of course.) I must have fallen asleep during Episode III, because that&rsquo;s the last thing I remember (not that anyone remembers much about Episode III). Sometime during the night I had a feverish dream in which Yoda appeared to me and said, &ldquo;Send these bytes, you must!&rdquo;</p>
+
+<p>When I awoke I found that I had scribbled a long list of hex values on my pillowcase with a Sharpie that had been lying on my headboard. From there, writing the Python implementation was a piece of cake.</p>
+
+<p>That&rsquo;s the whole story.</p>
+
+<h4>Older Firmware &mdash; WARNING! <a name="older_firmware"></a></h4>
+
+<p>Note also that Ajazz has sold AK33 keyboards that seem to have at least two different firmware versions, and this code (fictitiously) only works with one of them. The mode change, all-keys-same-color, and level setting works on both, but not the individual key colors. The Ajazz Windows software has the same problem, so I don&rsquo;t think I misunderstood Yoda&rsquo;s instructions.</p>
+
+<p>If you were to use this project&rsquo;s sofware (or Ajazz&rsquo;s Windows progam) to set individual key colors (<a href="#key_option"><code>--key</code></a> or <a href="#file_option"><code>--file</code></a> options) on a keyboard with the older firmware, you would find that it only works for some keys.</p>
+
+<p>Worse, it may set most of the other keys to red. All but one of them can be manually restored to black/off (or any of the other 8 preset colors) using the &ldquo;Fn+~&rdquo;  mode on the keyboard without external sofware. BUT NOT THE <strong>&ldquo;Fn&rdquo;</strong> KEY ITSELF! That one cannot be changed manually, and will be permanently lit red. Disconnecting and reconnecting the keyboard, cycling power on the computer, etc. will not help as the keyboard stores settings in non-volatile memory.</p>
+
+<p>IF THIS IS UNACCEPTABLE, DO NOT USE ANY SOFTWARE TO SET INDIVIDUAL KEY COLORS!!!</p>
+
+<p>I do not know if there is any way to determine the firmware version of a particular keyboard. I have a &ldquo;black&rdquo; keyswitch AK33 purchased March 2017 with the non-working firmware, and one &ldquo;blue&rdquo; and one &ldquo;black&rdquo; purchased July 2018 with the &ldquo;good&rdquo; firmware. Your mileage may vary.</p>
+
+<h4>GUI</h4>
+
+<p>What&rsquo;s a GUI? Command-line FTW.</p>
+
+<h4>(Not) Using The Software</h4>
+
+<p>Of course you&rsquo;re not going to risk using the software, but if you did, its options should be fairly self-explanatory. Type <code>./ajazz.py --help</code> for a semi-useful summary. Basically:</p>
+
+<pre><code>-d DEVICE, --device DEVICE                    /dev/hidrawN
+</code></pre>
+
+<p>The /dev/hidraw<N> Linux device special file associated with the keyboard. See <a href="#setup">Setup</a>. An ordinary file can be used for testing, but it must exist, and should be empty, before running the program.
+<br><br></p>
+
+<pre><code>-m [MODE], --mode [MODE]                      solid|custom|&lt;0-20&gt;
+</code></pre>
+
+<p>Switch to solid (all keys same color) or &ldquo;custom&rdquo; mode, or any of the blinky/flashy ones by specifying the appropriate mode number. I have no idea what the mapping of numbers to modes (by name or description) is &mdash; Yoda didn&rsquo;t tell me that &mdash; and almost as little interest. Can be used standalone to switch modes, or combined with <code>--solid</code>, <code>--key</code>, or <code>--file</code> to switch and make appropriate changes in a single run.
+<br><br></p>
+
+<pre><code>-l [LEVEL], --level [LEVEL]                   &lt;brightness level&gt; (0..5)
+</code></pre>
+
+<p>Overall LED brightness. Applies to all modes. Same as doing <code>Fn</code>+<code>up</code> or <code>down</code> on the keyboard itself.
+<br><br></p>
+
+<pre><code>-s SOLID SOLID SOLID, --solid SOLID SOLID SOLID` &lt;r&gt; &lt;g&gt; &lt;b&gt;  
+</code></pre>
+
+<p>red, green, and blue values for the all-keys-same color mode, either decimal numbers between 0..255 or hexadecimal 0x00..0xff. Sorry about the &ldquo;SOLID SOLID SOLID&rdquo; text in the help message &mdash; I had a hard enough time getting Python <code>argparse</code> to accept a custom parser that would eat three separate arguments at once. Any suggestions appreciated.
+<br><br></p>
+
+<p><a name="key_option"></a></p>
+
+<pre><code>-k KEY KEY KEY KEY, --key KEY KEY KEY KEY     &lt;key&gt; &lt;r&gt; &lt;g&gt; &lt;b&gt;
+</code></pre>
+
+<p>(See <a href="#older_firmware">Older Firmware</a> warning!)<br>
+Key name (<code>--names</code> for list) followed by r,g,b as per <code>--solid</code>. Same sorry excuse again for the bad help message. May be repeated to set multiple keys in single program invocation.
+<br><br></p>
+
+<p><a name="file_option"></a></p>
+
+<pre><code>-f [FILE], --file [FILE]                      key+color file
+</code></pre>
+
+<p>(See <a href="#older_firmware">Older Firmware</a> warning!)<br>
+Name of text file containing LED colors for individual keys. See <a href="#file">File</a>.
+<br><br></p>
+
+<pre><code>--names                                       print key names for --file file
+</code></pre>
+
+<p>See <a href="#file_format">File Format</a>.
+<br><br></p>
+
+<pre><code>-A, --accept                                  suppress warning message
+</code></pre>
+
+<p>Do not under any circumstances use this option.
+<br><br></p>
+
+<pre><code>-v, --verbose                                 print binary packets sent to and received from keyboard
+</code></pre>
+
+<p>Self explanatory.
+<br><br></p>
+
+<pre><code>  --version                                   print file format version
+</code></pre>
+
+<p>Value for checking <code>version</code> string in <code>--file &lt;file&gt;</code>
+<br><br></p>
+
+<h4>File Format (<code>--file</code> option) and Syntax <a name="file_format"></a></h4>
+
+<p>The largely undocumented structure (and I complain about Ajazz!) of these files is:</p>
+
+<p>One key/value per line.</p>
+
+<p>Amount and characters (space/tab) of whitespace not important.</p>
+
+<p><code>#</code><br/>
+starts comment, until end of line</p>
+
+<p><code>version</code> major minor micro<br/>
+for code vs file compatibility check.</p>
+
+<p>All r,g,b values 2-character hexadecimal, without leading &ldquo;0x&rdquo;</p>
+
+<p><code>/name</code> r g b<br/>
+named color</p>
+
+<p><code>key</code> r g b<br/>
+<code>key /named_color</code><br/>
+Set color of key. See <code>--names</code> option for list</p>
+
+<p>See <a href="./mmo.leds">./mmo.leds</a> example file.</p>
+
+<h4>Setup <a name="setup"></a></h4>
+
+<p>Nobody should use this software. But if you do &hellip;</p>
+
+<p>The program needs the Linux USB HID raw special file associated with the keyboard. There are two, one for reading raw keypress data coming from the keyboard, and one to receive commands (from the Ajazz Windows program &ndash; you&rsquo;re not going to use this one).</p>
+
+<p>Doing <code>ls /dev/hidraw*</code> will print a list of files of the form <code>/dev/hidraw1</code>,  <code>/dev/hidraw2</code>, <code>/dev/hidraw3</code>, etc. It is likely that the two Ajazz ones will be sequentially numbered, with the incoming keys one lower and the command one higher numerically. But no guarantees on this. The incoming keys one must have read permission (if using it), and the command one read and write. A <code>udev</code> rule could be set up to do this.</p>
+
+<p>The input vs command <code>/dev</code> files can be differentiated by doing <code>hexdump -C /dev/hidraw</code>N on each in turn, and pressing keys on the keyboard. One will cause data to printed when keys are pressed, and the other will not. The one that doesn&rsquo;t is the &ldquo;command&rdquo; special file.</p>
+
+<p>Doing <code>xinput --list</code> should show a line such as:</p>
+
+<pre><code>SONiX USB DEVICE                id=13    [slave  keyboard (3)]
+</code></pre>
+
+<p>This is the Ajazz keyboard, but I have not found a way to map this id to the associated <code>/dev/hidraw</code>N using any of the <code>xinput</code> options. The ID <em>is</em> useful, however, for doing <code>xinput --disable 13</code> to use the keyboard as a raw input device to other software without having it send keypresses to the terminal window or other program that has X Window System focus. <strong>DO NOT DO THIS</strong> if it is the only keyboard on the system &mdash; you will not be able to type <code>xinput --enable 13</code> to undo it and the system will need to be rebooted unless you have <code>ssh</code> access or some kind of mouse-to-keyboard GUI running.</p>
+
+<p>Continuing, doing <code>lsusb</code> should show a line similar to:</p>
+
+<pre><code>Bus 006 Device 111: ID 0c45:7903 Microdia 
+</code></pre>
+
+<p>This is also the keyboard. Mapping these values to the actual <code>/dev/hidraw</code>N special files is surprisingly difficult, even given the wealth of information and cross-symlinking that&rsquo;s in the <code>/dev</code> and <code>/sys</code> pseudo-file systems. The easiest way I&rsquo;ve found is to take the <code>lsusb</code> ID and grep for it:</p>
+
+<pre><code>$ ls -l /sys/class/hidraw/hidraw*/device | fgrep -i 0c45:7903
+lrwxrwxrwx 1 root root 0 Sep 14 09:18 /sys/class/hidraw/hidraw7/device -&gt; ../../../0003:0C45:7903.004A/
+lrwxrwxrwx 1 root root 0 Sep 14 09:18 /sys/class/hidraw/hidraw8/device -&gt; ../../../0003:0C45:7903.004B/
+</code></pre>
+
+<p>One of these should be the <code>/dev/hidraw</code>N file to (not) use with this software&rsquo;s <code>--device</code> option.</p>
+
+<h4>One Final Caution</h4>
+
+<p>I have no idea, and little interest in knowing, if the keyboard can have custom &ldquo;blinky&rdquo; code downloaded to it. In any case, besides recommending that this project&rsquo;s fictitious code not be used in general, it specifically should not be used to animate a blinky pattern using the <code>--file</code> or <code>--key</code> options or anything similar. There is a noticeable pause before the commands take effect, and I assume this is because keyboard&rsquo;s firmware is writing the LED colors to flash memory. Flash has a long but finite rewrite lifespan &mdash; it&rsquo;s unlikely to wear it out using the Ajazz Windows utility (or some fictional Linux software) to set colors at human speed, but doing an automatic update, even at the maximum 1 FPS rate that likely wouldn&rsquo;t be exceeded could burn out the memory if left running for any length of time.</p>
+
+<h4>An Open Letter To Ajazz.</h4>
+
+<p>Dear Ajazz,</p>
+
+<p>You make great hardware, in particular the AJAZZ AK33 RGB keyboard, but lack of documentation could be holding back its adoption (and your sales). Please consider doing one or more of the following:</p>
+
+<ol>
+<li><p>Publishing a complete description of the protocol used to interface and control the keyboard.</p></li>
+<li><p>Contributing corrections and fixes to the doubtless many errors in the fictitious code contained here.</p></li>
+<li><p>Releasing the source code for your <code>AK33 RGB Keyboard Driver V0101.exe</code> utility.</p></li>
+<li><p>State publicly that you approve of this or some similar open source software so that it could be used without all the warnings and disclaimers..</p></li>
+</ol>
+
+
+<p>There will probably be members of your organization who will object to these proposals. They may argue, &ldquo;We spent a lot of money on developing this proprietary firmware and software. Why should we give it away for free?&rdquo;</p>
+
+<p>On the surface that may seem a compelling argument, but in fact there is little or nothing in the protocol that is of any generic value or would give any advantage to your competitors. Yes, it is complex, but it is specific to your products and any other entity would and does have similar, analogous code.</p>
+
+<p>The only effect releasing these details would have would be an increase in your sales. There have been many requests for Linux software for your products posted on the internet; I was forced to write this project because I could never find any. And please note that a closed-source port of the Windows program to Linux would be of limited use: The Linux community in general does not adopt closed-source code, and it would not allow embedding the code as a library into other applications which could use your keyboard&rsquo;s functionality.</p>
+
+<p>Thank you for considering these proposals.</p>
+
+<p>P.S. Please manufacture and sell a version of the AK33 with &ldquo;brown&rdquo; tactile-but-not-audibly-clicky switches. That&rsquo;s the only thing that could be better than the current &ldquo;blue&rdquo; and &ldquo;black&rdquo; versions.</p>
+
+<p>P.P.S. The rubber pads on the fold-out feet tend to fall off. Not a big deal, but a stronger glue would help.</p>
+
+<p>P.P.P.S. Please release a firmware update for the older AK33 RGB keyboards, or release documentation detailing the protocol differences between that and the current firmware.</p>
+
+<p>P.P.P.P.S. Your Windows program has a small bug: When doing &ldquo;MMO&rdquo;, &ldquo;MOBA&rdquo;, etc. it sends the complete set of LED data twice, with small changes in between the two. This is unnecessary (at least that&rsquo;s what Yoda told me). It doesn&rsquo;t cause any problems, but it doubles the rate at which the flash memory cells will wear out, not that that&rsquo;s likely to happen in any real-world usage.</p>
+
+<p>Thank you again for making this wonderful product.</p>

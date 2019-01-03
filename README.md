@@ -7,7 +7,7 @@ This program is free software: you can redistribute it and/or modify it under th
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/gpl.html>
+You should have received a copy of the [GNU General Public License](LICENSE) along with this program.  If not, see <https://www.gnu.org/licenses/gpl.html>
 
 Disclaimer  <a name="disclaimer"></a>
 ----------
@@ -23,7 +23,7 @@ Motivation
 
 The AJAZZ AK33 RGB Keyboard is a fantastic piece of hardware. It is well designed and constructed and its firmware supports many capabilities. Included among them are the ...
 
-... excuse me a moment. I keep seeing references to Microsoft here on GitHub. What does Microsoft have to do with GitHub? Let me look into this ... WTF? ...  O...M...G !!!  Microsoft bought GitHub?? When did this happen??? I need to Google this ...
+... excuse me a moment. I keep seeing references to Microsoft here on GitHub. What does Microsoft have to do with GitHub? Let me look into this ... WTF? ...  O...M...G!!!  Microsoft bought GitHub?? When did this happen??? I need to Google this ...
 
 Ahem. I'm back. Man, that [Bing](https://www.bing.com) website sure makes searching the internet easy! Let me start over again ...
 
@@ -48,7 +48,7 @@ Which brings us to ...
 
 Ajazz provides software which runs under Microsoft Windows (the best operating system in the world, why would you want to use anything else?), in both Chinese and (mercifully) English versions.
 
-The sofware is mostly competent, allowing setting the keyboard mode to any of the flashy/blinky ones plus the solid and individual key colors. And, particularly, it allows setting arbitrary RGB values for both, using a fairly nice color-chooser GUI. It also has some presets for hot-key colors labeled, "MMO", "MOBA", "FPS", etc.  I'm not a gamer but I assume they're for that.
+The sofware is mostly competent, allowing setting the keyboard mode to any of the flashy/blinky ones plus the solid and individual key colors. And, particularly, it allows setting arbitrary RGB values for both, using a fairly nice color-chooser GUI. It also has some presets for hot-key colors labeled, "MMO", "MOBA", "FPS", etc.  I'm not a gamer but I assume that's what they're for.
 
 It doesn't have any way to save a custom individual key layout that I could figure out, but again I'm an idiot when it comes to using consumer software. It also has some buttons on the bottom of the main interface which are off-screen on a low resolution monitor and therefor unusable (the GUI is fixed-size and I can't figure out how how to move it partly offscreen on Windows 7, but as I've been saying about my abilities ...) (Microsoft Windows: Even the ancient Windows 7 release is lightyears ahead of anything else!) All-in-all, I give the software a B+, and you can dance to it. What more could anyone ask from a hardware company?
 
@@ -70,7 +70,7 @@ And, yes, I really do indent and align code like that. Much easier to read and c
 
 #### How Did I Get the Packet Format and Data Values?
 
-That's the darndest thing. One night I was so depressed about not being able to fully use my AK33 RGBs (I have three!) under Linux that I decided to console myself by trying to watch all eight of my Star Wars DVDs in one marathon session. (In release, not numbered, order, of course.) I must have fallen asleep during Episode III, because that's the last thing I remember (not that anyone remembers much about Episode III) because I then had a feverish dream in which Yoda appeared to me, saying, "Send these bytes, you must!"
+That's the darndest thing. One night I was so depressed about not being able to fully use my AK33 RGBs (I have three!) under Linux that I decided to console myself by trying to watch all eight of my Star Wars DVDs in one marathon session. (In release, not numbered, order, of course.) I must have fallen asleep during Episode III, because that's the last thing I remember (not that anyone remembers much about Episode III). Sometime during the night I had a feverish dream in which Yoda appeared to me and said, "Send these bytes, you must!"
 
 When I awoke I found that I had scribbled a long list of hex values on my pillowcase with a Sharpie that had been lying on my headboard. From there, writing the Python implementation was a piece of cake.
 
@@ -111,7 +111,7 @@ Overall LED brightness. Applies to all modes. Same as doing `Fn`+`up` or `down` 
 <br><br>
 
     -s SOLID SOLID SOLID, --solid SOLID SOLID SOLID` <r> <g> <b>  
-red, green, and blue values for the all-keys-same color mode, either decimal numbers between 0..255 or hexadecimal 0x00..0xff. Sorry about the "SOLID SOLID SOLID" text --- I had a hard enough time getting Python `argparse` to accept a custom parser that would eat three separate arguments at once. Any suggestions appreciated.
+red, green, and blue values for the all-keys-same color mode, either decimal numbers between 0..255 or hexadecimal 0x00..0xff. Sorry about the "SOLID SOLID SOLID" text in the help message --- I had a hard enough time getting Python `argparse` to accept a custom parser that would eat three separate arguments at once. Any suggestions appreciated.
 <br><br>
 
 <a name="key_option"></a>
@@ -177,7 +177,7 @@ See [./mmo.leds](./mmo.leds) example file.
 
 Nobody should use this software. But if you do ...
 
-The program needs the Linux USB HID raw special file associated with the keyboard. There are two, one for reading raw keypress data coming from the keyboard, and one to receive commands (from the Ajazz Windows program, not this one).
+The program needs the Linux USB HID raw special file associated with the keyboard. There are two, one for reading raw keypress data coming from the keyboard, and one to receive commands (from the Ajazz Windows program -- you're not going to use this one).
 
 Doing `ls /dev/hidraw*` will print a list of files of the form `/dev/hidraw1`,  `/dev/hidraw2`, `/dev/hidraw3`, etc. It is likely that the two Ajazz ones will be sequentially numbered, with the incoming keys one lower and the command one higher numerically. But no guarantees on this. The incoming keys one must have read permission (if using it), and the command one read and write. A `udev` rule could be set up to do this.
 
@@ -204,7 +204,7 @@ One of these should be the `/dev/hidraw`N file to (not) use with this software's
 
 #### One Final Caution
 
-I have no idea, and little interest in knowing, if the keyboard can have custom "blinky" code downloaded to it. In any case, besides recommending that this project's fictitious code not be used in general, it specifically should not be used to animate a blinky pattern using the `--file` or `--key` options or anything similar. There is a noticeable pause before the commands take effect, and I assume this is because keyboard's firmware is writing the LED colors to flash memory. Flash has a long but finite rewrite lifespan --- it is unlikely to wear it out using the Ajazz Windows utility (or some fictional Linux software) to set colors at human speed, but doing an automatic update, even at the maximum one FPS rate that likely wouldn't be exceeded could burn out the memory if left running for any length of time.
+I have no idea, and little interest in knowing, if the keyboard can have custom "blinky" code downloaded to it. In any case, besides recommending that this project's fictitious code not be used in general, it specifically should not be used to animate a blinky pattern using the `--file` or `--key` options or anything similar. There is a noticeable pause before the commands take effect, and I assume this is because keyboard's firmware is writing the LED colors to flash memory. Flash has a long but finite rewrite lifespan --- it's unlikely to wear it out using the Ajazz Windows utility (or some fictional Linux software) to set colors at human speed, but doing an automatic update, even at the maximum 1 FPS rate that likely wouldn't be exceeded could burn out the memory if left running for any length of time.
 
 
 
@@ -212,7 +212,7 @@ I have no idea, and little interest in knowing, if the keyboard can have custom 
 
 Dear Ajazz,
 
-You make great hardware, in particular the AJAZZ AK33 RGB keyboard, but lack of documentation is holding back its adoption (and your sales). Please consider doing one or more of the following:
+You make great hardware, in particular the AJAZZ AK33 RGB keyboard, but lack of documentation could be holding back its adoption (and your sales). Please consider doing one or more of the following:
 
 1. Publishing a complete description of the protocol used to interface and control the keyboard.
 
@@ -222,11 +222,11 @@ You make great hardware, in particular the AJAZZ AK33 RGB keyboard, but lack of 
 
 4. State publicly that you approve of this or some similar open source software so that it could be used without all the warnings and disclaimers..
 
-There will probably be members of your organization who will object to these proposals. The may argue, "We spent a lot of money on developing this proprietary firmware and software. Why should we give it away for free?"
+There will probably be members of your organization who will object to these proposals. They may argue, "We spent a lot of money on developing this proprietary firmware and software. Why should we give it away for free?"
 
 On the surface that may seem a compelling argument, but in fact there is little or nothing in the protocol that is of any generic value or would give any advantage to your competitors. Yes, it is complex, but it is specific to your products and any other entity would and does have similar, analogous code.
 
-The only affect releasing these details would have would be an increase in your sales. There have been many requests for Linux software for your products posted on the internet; I was forced to write this project because I could never find any. And please note that a closed-source port of the Windows program to Linux would be of limited use: The Linux community in general does not adopt closed-source code, and it would not allow embedding the code as a library into other applications which could use your keyboard's functionality.
+The only effect releasing these details would have would be an increase in your sales. There have been many requests for Linux software for your products posted on the internet; I was forced to write this project because I could never find any. And please note that a closed-source port of the Windows program to Linux would be of limited use: The Linux community in general does not adopt closed-source code, and it would not allow embedding the code as a library into other applications which could use your keyboard's functionality.
 
 Thank you for considering these proposals.
 
